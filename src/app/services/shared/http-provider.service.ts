@@ -69,11 +69,11 @@ export class HttpProviderService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Origin': window.location.hostname,
         'Authorization': this.auth.authorizationHeader(),
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': '*',
-        // tslint:disable-next-line:max-line-length
         'Access-Control-Allow-Headers': '*'
       })
     };

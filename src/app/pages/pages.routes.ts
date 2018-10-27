@@ -19,8 +19,8 @@ const pagesRoutes: Routes = [
             { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráficas' }, canActivate: [RouterAuthGuard] },
             { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }, canActivate: [RouterAuthGuard] },
             { path: 'observable', component: RxjsComponent, data: { titulo: 'Observables' }, canActivate: [RouterAuthGuard] },
-            // tslint:disable-next-line:max-line-length
-            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema' }, canActivate: [RouterAuthGuard] },
+            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema' },
+                canActivate: [RouterAuthGuard] },
             { path: 'client', component: ClientPageComponent, data: { titulo: 'Clientes'}, canActivate: [RouterAuthGuard]},
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
