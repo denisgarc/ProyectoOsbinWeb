@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -16,6 +17,9 @@ import { APP_ROUTES } from './app.routes';
 import { PagesModule } from './pages/pages.module';
 
 import { FormsModule } from '@angular/forms';
+import { SessionMapper } from 'src/app/mappers/general/session.mapper';
+import { ErrorMapper } from './mappers/general/error.mapper';
+import { RouterAuthGuard } from './providers/guards/router.guard';
 
 
 @NgModule({
@@ -29,9 +33,14 @@ import { FormsModule } from '@angular/forms';
     APP_ROUTES,
     PagesModule,
     FormsModule,
-    ServiceModule
+    ServiceModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SessionMapper,
+    ErrorMapper,
+    RouterAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

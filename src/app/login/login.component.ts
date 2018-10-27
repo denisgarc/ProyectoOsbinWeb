@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from '../services/shared/session.service';
 
 declare function init_plugins();
 
@@ -9,13 +10,32 @@ declare function init_plugins();
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public router: Router) {}
+  public model: any = {
+    username: '',
+    password: ''
+  };
+
+  constructor(public router: Router,
+    private sessionService: SessionService) { }
 
   ngOnInit() {
     init_plugins();
   }
 
-  ingresar() {
-    this.router.navigate(['/dashboard']);
+  logIn() {
+    if (this.model.username === '' || this.model.password === '') {
+      return;
+    }
+
+    this.sessionService.TryLogin(this.model.username, this.model.password)
+      .subscribe(
+        (success: boolean) => {
+          if (success) {
+            this.router.navigate(['/dashboard']);
+          }
+        }, (error) => {
+          console.error(error);
+        }
+      );
   }
 }
