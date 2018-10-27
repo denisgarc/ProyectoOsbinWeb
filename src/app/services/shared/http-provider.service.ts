@@ -70,7 +70,11 @@ export class HttpProviderService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': this.auth.authorizationHeader(),
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        // tslint:disable-next-line:max-line-length
+        'Access-Control-Allow-Headers': '*'
       })
     };
     return httpOptions;
