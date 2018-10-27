@@ -69,12 +69,8 @@ export class HttpProviderService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Origin': window.location.hostname,
         'Authorization': this.auth.authorizationHeader(),
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Headers': '*'
+        'Accept': 'application/json'
       })
     };
     return httpOptions;

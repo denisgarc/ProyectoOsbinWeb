@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  ServiceBase: 'http://serproinfordev8117.cloudapp.net:4450/'
-  // ServiceBase: 'http://localhost:61000/'
+  // ServiceBase: 'http://serproinfordev8117.cloudapp.net:4450/'
+  ServiceBase: 'http://localhost:61000/'
 };
 
 /*

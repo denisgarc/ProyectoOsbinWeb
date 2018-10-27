@@ -33,6 +33,7 @@ export class ClientPageComponent implements OnInit {
           (success) => {
             this.loading = false;
             this.success = 'Cliente grabado exitosamente';
+            this.model = new Client(0, '', '', null, true);
           }, (error) => {
             this.loading = false;
             this.msg = error.message;
