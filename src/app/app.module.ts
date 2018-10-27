@@ -21,6 +21,8 @@ import { SessionMapper } from 'src/app/mappers/general/session.mapper';
 import { ErrorMapper } from './mappers/general/error.mapper';
 import { RouterAuthGuard } from './providers/guards/router.guard';
 
+// import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { RouterAuthGuard } from './providers/guards/router.guard';
     PagesModule,
     FormsModule,
     ServiceModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     SessionMapper,

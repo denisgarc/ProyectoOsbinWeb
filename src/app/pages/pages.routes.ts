@@ -7,6 +7,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { RouterAuthGuard } from '../providers/guards/router.guard';
+import { ClientPageComponent } from './cliente/client-page/client-page.component';
 
 const pagesRoutes: Routes = [
     {
@@ -20,6 +21,7 @@ const pagesRoutes: Routes = [
             { path: 'observable', component: RxjsComponent, data: { titulo: 'Observables' }, canActivate: [RouterAuthGuard] },
             // tslint:disable-next-line:max-line-length
             { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema' }, canActivate: [RouterAuthGuard] },
+            { path: 'client', component: ClientPageComponent, data: { titulo: 'Clientes'}, canActivate: [RouterAuthGuard]},
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },

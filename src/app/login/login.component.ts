@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
+  loading: boolean = false;
+  msg: string;
 
   constructor(public router: Router,
     private sessionService: SessionService) { }
@@ -23,7 +25,10 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
+    this.loading = true;
     if (this.model.username === '' || this.model.password === '') {
+      this.msg = 'Debe ingresar los datos del usuario';
+      this.loading = false;
       return;
     }
 
@@ -31,11 +36,18 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (success: boolean) => {
           if (success) {
+            this.loading = true;
             this.router.navigate(['/dashboard']);
           }
         }, (error) => {
+          this.loading = false;
+          this.msg = error.message;
           console.error(error);
         }
       );
+  }
+
+  dismiss() {
+    this.msg = null;
   }
 }
